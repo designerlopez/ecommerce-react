@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { loginUserThunk, logOutThunk } from '../store/slices/userInfo.slice'
+import "./styles/Login.css"
 
 const Login = () => {
-  const {token}=useSelector(state=>state.userInfo)
+  const {token, user}=useSelector(state=>state.userInfo)
   
   const {register, handleSubmit}=useForm()
 
@@ -24,32 +25,32 @@ const Login = () => {
 
 
   return (
-    <main>
+    <main className='login'>
       {
         token?(
-          <section>
-            <i className='bx bxs-user-circle' ></i>
-            <h3></h3>
-            <button onClick={handleClickLogout}>Logout</button>
+          <section className='login__logged'>
+            <i className='login__logged-icon bx bxs-user-circle' ></i>
+            <h3 className='login__logged-name'>{`${user.firstName} ${user.lastName}`}</h3>
+            <button className='login__logged-btn' onClick={handleClickLogout}>Logout</button>
           </section>
         ): (
-          <form onSubmit={handleSubmit(submit)}>
-        <h3></h3>
-        <div>
-          <h4>Test data</h4>
-          <p>john@gmail.com</p>
-          <p>john1234</p>
+          <form className='login__form' onSubmit={handleSubmit(submit)}>
+        <h3 className='login__title'>WELCOME</h3>
+        <div className='login__container-test'>
+          <h4 className='login__test-title'>Test data</h4>
+          <p className='login__test-email'>john@gmail.com</p>
+          <p className='login__test-password'>john1234</p>
         </div>
-        <div>
-          <label >Email</label>
-          <input type="email"{...register("email")} />
+        <div className='login__field'>
+          <label className='login__label'>Email</label>
+          <input className='login__input' type="email"{...register("email")} />
         </div>
-        <div>
-          <label >Password</label>
-          <input type="password"{...register("password")} />
+        <div  className='login__field'>
+          <label className='login__label' >Password</label>
+          <input className='login__input' type="password"{...register("password")} />
         </div>
-        <button>Login</button>
-        <p>Don't have an account <span>Sign up NOW</span> </p>
+        <button className='login__btn'>Login</button>
+        <p className='login__text-footer'>Don't have an account <span>Sign up NOW</span> </p>
       </form>
         )
       }
