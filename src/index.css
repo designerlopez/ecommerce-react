@@ -1,0 +1,32 @@
+:root{
+    --color-gray:#3d3d3d;
+    --color-red:#f85555;
+    
+
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+img{
+    width: 100%;
+
+}
+
+a{
+    font-family: inherit;
+    text-decoration: none;
+
+}
+
+input{
+    outline:none;
+}

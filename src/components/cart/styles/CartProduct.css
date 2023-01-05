@@ -1,0 +1,18 @@
+.cartProduct{
+    padding: 15px;
+    position: relative;
+    border: 1px solid var(--color-gray);
+    border-radius: 10px;
+    transition: transform 300ms ease;
+
+}
+
+.cartProduct:hover{
+    transform: scale(1.2);
+}
+
+.cartProduct__brand{
+    color: var(--color-gray);
+    font-size: 15px;
+}
+
